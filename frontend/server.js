@@ -1,6 +1,7 @@
 var app = require('http').createServer(handler)
     , io = require('socket.io').listen(app)
-    , fs = require('fs');
+    , fs = require('fs')
+    , cote = require('cote');
 
 app.listen(process.argv[2] || 5555);
 
@@ -17,7 +18,7 @@ function handler (req, res) {
         });
 };
 
-var sockend = new require('cote').Sockend(io, {
+var sockend = new cote.Sockend(io, {
     name: 'sockend',
     key: 'sdf'
 });
